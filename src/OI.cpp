@@ -15,6 +15,8 @@
 #include "SmartDashboard/SmartDashboard.h"
 #include "Commands/AutonomousCommand.h"
 #include "Commands/DriveWithJoysticks.h"
+#include "Commands/DriveLeft.h"
+#include "Commands/DriveStop.h"
 #include "Commands/CenterOnTote.h"
 
 
@@ -34,8 +36,14 @@ OI::OI() {
 	m_leftJoystick = new Joystick(0);
 	
 	m_rightButton10 = new JoystickButton(m_rightJoystick, 2);
+	m_rightButton3 = new JoystickButton(m_rightJoystick, 3);
+	m_rightButton4 = new JoystickButton(m_rightJoystick, 4);
+	m_rightButton5 = new JoystickButton(m_rightJoystick, 5);
 
 	m_rightButton10->WhenPressed(new CenterOnTote());
+	m_rightButton3->WhenPressed(new DriveStop());
+	m_rightButton4->WhenPressed(new DriveLeft());
+	m_rightButton5->WhenPressed(new DriveWithJoysticks());
 
 
 

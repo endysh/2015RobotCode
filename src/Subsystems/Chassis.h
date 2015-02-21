@@ -38,7 +38,7 @@ public:
 	virtual ~Chassis();
 	void MecanumDrive_Polar(float magnitude, float direction, float rotation);
 	void MecanumDrive_Cartesian(float x, float y, float rotation);
-	void InitDefaultCommand();
+	virtual void InitDefaultCommand();
 };
 
 #endif
